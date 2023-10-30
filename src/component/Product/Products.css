@@ -1,0 +1,121 @@
+.productsHeading {
+  margin: 0vmax auto;
+  width: 15vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+  padding: 1vmax;
+  color: rgba(0, 0, 0, 0.678);
+  font: 500 2vmax "Roboto";
+  text-align: center;
+}
+
+.SearchedProducts {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+}
+
+.filterBox {
+  margin-left: 10vmax;
+  margin-right: 4vmax;
+  margin-top: 2vmax;
+}
+
+.gridGap {
+  margin-bottom: 2vmax;
+  border: none;
+}
+
+.category-link {
+  color: rgba(0, 0, 0, 0.61);
+  font: 500 2vmax "Roboto";
+  margin: 1vmax 3vmax;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.category-link:hover {
+  color: tomato;
+}
+
+.products {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1vmax;
+}
+
+.paginationBox {
+  display: flex;
+  justify-content: center;
+  margin: 6vmax;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.page-item {
+  background-color: rgb(255, 255, 255);
+  list-style: none;
+  border: 1px solid rgba(0, 0, 0, 0.178);
+  padding: 1vmax 1.5vmax;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.page-item:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.page-item:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.page-link {
+  text-decoration: none;
+  font: 300 1.2vmax "Roboto";
+  color: rgb(80, 80, 80);
+  transition: all 0.3s;
+}
+
+.page-item:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.page-item:hover .page-link {
+  color: rgb(0, 0, 0);
+}
+
+.pageItemActive {
+  background-color: tomato;
+}
+
+.pageLinkActive {
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .SearchedProducts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .products {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .gridGap {
+    margin-bottom: 2.5vmax;
+  }
+
+  .category-link {
+    color: rgba(0, 0, 0, 0.61);
+    font: 500 1.5vmax "Roboto";
+    margin: 1vmax 3vmax;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+}
