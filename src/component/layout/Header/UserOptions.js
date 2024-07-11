@@ -6,6 +6,7 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import PersonIcon from "@material-ui/icons/Person";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ListAltIcon from "@material-ui/icons/ListAlt";
+import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
