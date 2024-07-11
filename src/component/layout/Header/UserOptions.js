@@ -35,6 +35,7 @@ const UserOptions = ({ user }) => {
       func: cart,
     },
     { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
+    { icon: <HomeIcon />, name: "Home", func: home },
   ];
 
   if (user.role === "admin") {
@@ -65,6 +66,9 @@ const UserOptions = ({ user }) => {
   function logoutUser() {
     dispatch(logout());
     alert.success("Logout  Successfully");
+  }
+  function home() {
+    Navigate("/");
   }
 
   return (
