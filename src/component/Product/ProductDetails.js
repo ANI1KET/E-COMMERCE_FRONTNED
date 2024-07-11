@@ -14,7 +14,6 @@ import { Dialog, DialogActions, DialogContent, DialogTitle, Button, } from "@mat
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 import { Rating } from "@material-ui/lab";
 
-
 const ProductDetails = () => {
     const dispatch = useDispatch();
     const params = useParams();

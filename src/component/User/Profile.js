@@ -24,7 +24,7 @@ const Profile = () => {
           {loading ? (
             <Loader />
           ) : (
-            <img src={user.avatar.url} alt={user.name} />
+            <img src={user.avatar?.url} alt={user.name} />
           )}
           <Link to="/me/update">Edit Profile</Link>
         </div>

@@ -1,16 +1,16 @@
 import React, { useEffect, useMemo, useState, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WebFont from "webfontloader";
-import "./App.css";
-import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useSelector } from "react-redux";
+import "./App.css";
 
 import Loader from "./component/layout/Loader/Loader";
 
 import { loadUser } from "./actions/userAction";
 import store from "./store";
+import axiosInstance from "./utils/axios.js";
 
 const Header = lazy(() => import("./component/layout/Header/Header.js"))
 const UserOptions = lazy(() => import("./component/layout/Header/UserOptions"))
@@ -32,7 +32,7 @@ const Shipping = lazy(() => import("./component/Cart/Shipping"))
 const ConfirmOrder = lazy(() => import("./component/Cart/ConfirmOrder"))
 const Payment = lazy(() => import("./component/Cart/Payment"))
 const OrderSuccess = lazy(() => import("./component/Cart/OrderSuccess"))
-const MyOrders = lazy(() => import("./component/Order/MyOrders"))
+const Orders = lazy(() => import("./component/Order/MyOrders"))
 const OrderDetails = lazy(() => import("./component/Order/OrderDetails"))
 
 const Dashboard = lazy(() => import("./component/Admin/Dashboard.js"))
@@ -53,6 +53,8 @@ const NotFound = lazy(() => import("./component/layout/Not Found/NotFound"))
 
 
 export default function App() {
+  const { user, isAuthenticated, isNotAuthenticated, } = useSelector((state) => state.user);
+
   useMemo(() => {
     store.dispatch(loadUser());
   }, []);
@@ -61,14 +63,13 @@ export default function App() {
 
   async function getStripeApiKey() {
     try {
-      const { data } = await axios.get("/api/v1/stripeapikey");
+      const { data } = await axiosInstance.get("/api/v1/stripeapikey");
       setStripeApiKey(data.stripeApiKey);
     }
     catch (error) {
+      console.log("Error ", error);
     }
   }
-
-  const { user, isAuthenticated, isNotAuthenticated, } = useSelector((state) => state.user);
 
   useEffect(() => {
     WebFont.load({
@@ -109,7 +110,7 @@ export default function App() {
             )}
 
             <Route exact path="/success" element={<OrderSuccess />} />
-            <Route exact path="/orders" element={<MyOrders />} />
+            <Route exact path="/orders" element={<Orders />} />
             <Route exact path="/order/:id" element={<OrderDetails />} />
 
             <Route exact path="/admin/dashboard"

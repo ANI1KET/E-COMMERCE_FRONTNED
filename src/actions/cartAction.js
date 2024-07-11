@@ -3,11 +3,11 @@ import {
   REMOVE_CART_ITEM,
   SAVE_SHIPPING_INFO,
 } from "../constants/cartConstants";
-import axios from "axios";
+import axiosInstance from "../utils/axios.js";
 
 // Add to Cart
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
-  const { data } = await axios.get(`/api/v1/product/${id}`);
+  const { data } = await axiosInstance.get(`/api/v1/product/${id}`);
   dispatch({
     type: ADD_TO_CART,
     payload: {

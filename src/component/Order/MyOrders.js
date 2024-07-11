@@ -10,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
 import LaunchIcon from "@material-ui/icons/Launch";
 
-const MyOrders = () => {
+const Orders = () => {
   const dispatch = useDispatch();
 
   const alert = useAlert();
@@ -83,7 +83,7 @@ const MyOrders = () => {
     }
 
     dispatch(myOrders());
-  }, [dispatch, alert, error]);
+  }, [dispatch, alert]);
 
   return (
     <Fragment>
@@ -109,4 +109,4 @@ const MyOrders = () => {
   );
 };
 
-export default MyOrders;
+export default Orders;

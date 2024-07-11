@@ -12,7 +12,8 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
-import axios from "axios";
+import axiosInstance from "../../utils/axios.js";
+
 import "./payment.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
@@ -56,7 +57,7 @@ const Payment = () => {
           "Content-Type": "application/json",
         },
       };
-      const { data } = await axios.post(
+      const { data } = await axiosInstance.post(
         "/api/v1/payment/process",
         paymentData,
         config
@@ -100,7 +101,7 @@ const Payment = () => {
       }
     } catch (error) {
       payBtn.current.disabled = false;
-      alert.error(error.response.data.message);
+      alert.error(error.message);
     }
   };
 
