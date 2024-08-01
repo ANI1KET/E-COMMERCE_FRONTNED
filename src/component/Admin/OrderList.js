@@ -86,7 +86,7 @@ const OrderList = () => {
       renderCell: (params) => {
         return (
           <Fragment>
-            {(user._id === params.row.user || user._id === '6495a1476fcc0df73ce9285a') &&
+            {(user._id === params.row.user || user.role === "admin") &&
               (
                 <Fragment>
                   <Link to={`/admin/order/${params.row.id}`}>
